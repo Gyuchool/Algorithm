@@ -44,6 +44,9 @@ int main() {
 		cin >> arr[i];
 	}
 	
-	cout << Per_size(arr) <<endl;;
+	cout << Per_size(arr) <<endl;
+	for(auto it= v.begin(); it!=v.end(); ++it){
+		cout << *it <<' ';
+	}
 	return 0;
 }
