@@ -20,8 +20,8 @@ void bfs(int start){
 		for(int i=0; i< a[x].size(); ++i){
 			int y = a[x][i];
 			if(!visit[y]){
-				q.push(y);
 				visit[y] = true;
+				q.push(y);
 			}
 		}
 	}
