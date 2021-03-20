@@ -8,3 +8,6 @@
 - 프로그래머스
   lv.1 카카오문제만
   lv.2 ~ 전부 풀어보기
+
+- 내 블로그
+ www.giron.tistory.com
