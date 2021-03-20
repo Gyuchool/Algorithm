@@ -10,4 +10,4 @@
   lv.2 ~ 전부 풀어보기
 
 - 내 블로그
- www.giron.tistory.com
+ https://giron.tistory.com/
