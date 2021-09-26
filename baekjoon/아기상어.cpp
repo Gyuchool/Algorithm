@@ -7,12 +7,10 @@ int babySize = 2;
 int babyUp = 0;
 int babyX;
 int babyY;
-int time;
 int answer;
 
 int dx[] = { -1, 0,1, 0 };
 int dy[] = { 0,-1, 0, 1 };
-int stop;
 
 int n;
 int arr[21][21];
@@ -77,12 +75,11 @@ bool canEat() {
 	}
 	sort(feed.begin(), feed.end(), compare);
 	if (feed.empty()) {
-
 		return false;
 	}
-	else {
-		return true;
-	}
+
+	return true;
+
 }
 
 
@@ -122,9 +119,7 @@ void move() {
 					move();
 				}
 				else {
-
-					stop = 1;
-					break;
+					return;
 				}
 
 			}
@@ -135,10 +130,9 @@ void move() {
 			}
 
 		}
-		if (stop) {
-			break;
-		}
 	}
+
+
 
 }
 
