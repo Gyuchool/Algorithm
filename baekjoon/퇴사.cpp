@@ -4,20 +4,18 @@
 using namespace std;
 
 int n;
-int dp[6][1001];
 int visited[1001];
 vector<pair<int, int>> works;
-int ma = 0;
-int day;
+int answer;
 int pays;
 
 void start(int x, int pre) {
 	if (x == n) {
-		ma = max(ma, pays);
+		answer = max(answer, pays);
 		return;
 	}
 	if (x > n) {
-		ma = max(ma, pays - works[pre].second);
+		answer = max(answer, pays - works[pre].second);
 		return;
 	}
 
@@ -37,5 +35,5 @@ int main() {
 	}
 
 	start(0,0);
-	cout << ma;
+	cout << answer;
 }
