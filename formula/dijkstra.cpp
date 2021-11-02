@@ -1,12 +1,11 @@
 #include <iostream>
 #include <queue>
 #include <vector>
-#include <utility>
 using namespace std;
 
 
 int answer[20001];//최소 비용
-vector<pair<int, int>> line[300001];//<거리, 연결상대><자신과 연결> 간선
+vector<pair<int, int>> line[300001];//<거리, 연결상대> 간선
 int INF = 2000010;
 
 void dijstra(int start) {
@@ -47,10 +46,13 @@ int main() {
 	
 	for (int i = 1; i <= e; ++i) {
 		cin >> a >> b >> c;
-		line[a].push_back(make_pair(c, b));
+		line[a].push_back({c, b});
+		//line[b].push_back({c,a});
 	}
 
 	dijstra(k);
+	//answer[]에 k부터의 거리들 저장됨
+	
 	for (int i = 1; i <= x; ++i) {
 		if (answer[i] != INF) {
 			cout << answer[i] << endl;
