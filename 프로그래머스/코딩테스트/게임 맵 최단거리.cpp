@@ -25,8 +25,11 @@ void bfs(vector<vector<int> > maps, int x, int y) {
 			int ny = cy + dy[i];
 			if (nx < 0 || ny < 0 || nx >= n || ny >= m)continue;
 			if (!visited[nx][ny] && maps[nx][ny] == 1) {
-				visited[nx][ny] = visited[cx][cy] + 1;
-				q.push({ nx, ny });
+			
+				if (visited[nx][ny] > visited[cx][cy] + 1) {
+					visited[nx][ny] = visited[cx][cy] + 1
+					q.push({ nx, ny });
+				}
 			}
 		}
 	}
