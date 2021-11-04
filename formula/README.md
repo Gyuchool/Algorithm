@@ -16,7 +16,6 @@ using namespace std;
 int n,m;
 int arr[9];
 int visited[9];
-int index;
 void go(int cnt, int num) {
 	if (cnt == m) {
 		for (int i = 0; i < m; ++i)
