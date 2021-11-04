@@ -110,7 +110,7 @@ int main() {
 }
 ```
 ## 문제
-![image](https://user-images.githubusercontent.com/60054318/140243412-3b9943af-9819-423d-a2d1-bf21ff3cf341.png){: width="100" height="100"}
+![image](https://user-images.githubusercontent.com/60054318/140243412-3b9943af-9819-423d-a2d1-bf21ff3cf341.png)
 
 ## 소스코드
 ```
