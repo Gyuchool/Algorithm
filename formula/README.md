@@ -1,6 +1,139 @@
 ## 순열과 조합 정리
 https://github.com/Gyuchool/Algorithm/blob/master/formula/%EC%88%9C%EC%97%B4%EA%B3%BC%20%EC%A1%B0%ED%95%A9.md
 
+### #define n, r : n개 중에서 r개 선택
+
+- int arr 대신에 string 을 이용해도 된다. 
+- 재귀 들어갈때 combination(string+value)
+
+```
+// 중복조합 A, AA, AAEE, AAAAA, AEAEE etc..
+char dir[] = { 'A','E','I','O','U' };
+vector<string> tmp;
+
+void duplicatePermutation(int depth, int x, string res) {
+    if (depth == x) {
+        tmp.push_back(res);
+        return;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        duplicatePermutation(depth + 1,x, res+dir[i]); //이렇게하면 string붙이고 pop_back()보다 5ms가량 더 빠름
+    }
+}
+
+
+int solution(string word) {
+    //1 개일떄 중복, 2개일떄 중복 ,3개일때 .. 5개일떄 중복조합 전부
+    for (int i = 1; i <= 5; i++) {
+        duplicatePermutation(0, i,"");
+    }
+}
+```
+# 순열
+
+## (순서O, 중복X) nPr
+
+```
+int arr[r]; // r개 배열 초기화
+bool check[n + 1]; // 초기화 
+
+void permutation(int depth){
+    if(depth == r){
+        for(int i=0;i<r;i++){
+          cout<<arr[i]<<' ';
+        }
+        return;        
+    }
+    
+    for(int i = 1; i <= n; i++){ // 1부터 n개까지 반복
+        if(!check[i]){  //방문 안했다면(검사 안했다면)
+            check[i] = true;
+            arr[depth] = i;
+            permutation(depth + 1);
+            check[i] = false;
+        }
+    }
+}
+
+int main(void){
+    permutation(0);
+    return 0;
+}
+```
+
+## 중복 순열
+## (순서O, 중복X) nPr
+```
+void duplicatePermutation(int depth){
+    if(depth == r){
+        for(int i=0;i<r;i++){
+          cout<<arr[i]<<' ';
+        }
+        return;        
+    }
+    
+    for(int i = 1; i <= n; i++){
+        arr[depth] = i;
+        duplicatePermutation(depth + 1);
+    }
+}
+
+int main(void){
+    duplicatePermutation(0);
+    return 0;
+}
+```
+
+# 조합
+
+## (순서X, 중복X) nCr
+```
+void combination(int depth, int next){
+     if(depth == r){
+        for(int i=0;i<r;i++){
+          cout<<arr[i]<<' ';
+        }
+        return;        
+    }
+
+    for(int i = next; i <= n; i++){ //i 시작이 next주목
+        arr[depth] = i;
+        combination(depth + 1, i + 1);
+    }
+}
+
+int main(void){
+
+    combination(0, 1);
+    return 0;
+}
+```
+
+## 중복조합
+
+```
+void duplicateCombination(int depth, int next){
+     if(depth == r){
+        for(int i=0;i<r;i++){
+          cout<<arr[i]<<' ';
+        }
+        return;        
+    }
+
+    for(int i = next; i <= n; i++){
+        arr[depth] = i;
+        duplicateCombination(depth + 1, i);
+    }
+}
+
+int main(void){
+    duplicateCombination(0, 1);
+
+    return 0;
+}
+```
+
 # 백트래킹 정리
  - 1부터 N까지 자연수 중에서 중복 없이 M개를 고른 수열
  - 고른 수열은 오름차순이어야 한다.
