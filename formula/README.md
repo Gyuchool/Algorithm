@@ -36,8 +36,8 @@ int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cin >> n >> m;
-	
-	go(0, 1);
+	//nCm  
+	go(0, 1); //1 부터 시작~ 
 }
 
 // 중복 허용일땐
