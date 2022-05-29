@@ -41,3 +41,22 @@ int main()
     return 0;
 }
 ```
+
+```c++
+string s = "";
+
+vector<string> split(string input, char delimiter) {
+    vector<string> answer;
+    stringstream ss(input);
+    string temp;
+
+    while (getline(ss, temp, delimiter)) {
+        if (temp == "" || temp.empty()) {
+            continue;
+        }
+        answer.push_back(temp);
+    }
+
+    return answer;
+}
+```
