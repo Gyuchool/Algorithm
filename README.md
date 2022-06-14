@@ -1,47 +1,9 @@
 # Algorithm
 
-현재 백준 골드2
-
-- 백준
-  실1~ 골드 문제 풀기
-
-- 프로그래머스
-  lv.1 카카오문제만
-  lv.2 ~ 전부 풀어보기
-
 - 내 블로그
  https://giron.tistory.com/
  
  c++로 stringTokenizer
- ```
-#include<iostream>
-#include<string>
-#include<vector>
-#include<sstream> // 이게 중요
-
-using namespace std;
-
-int main()
-{
-    string str="java c c++ python";
-    istringstream ss(str);
-    string stringBuffer;
-    vector<string> x;
-    x.clear();
-
-    //구분자가 , 이라면 getline(ss, stringBuffer, ',')쓰면됨
-    while (getline(ss, stringBuffer, ' ')){
-        x.push_back(stringBuffer);
-    }
-    //x에 토큰들 담김
-    for(int i=0;i<x.size();i++){
-        cout<<x[i]<<endl;
-    }
-    
-    return 0;
-}
-```
-
 ```c++
 string s = "";
 
@@ -60,3 +22,42 @@ vector<string> split(string input, char delimiter) {
     return answer;
 }
 ```
+next_permutation을 이용한 조합
+```c++
+vector<int> v{1,2,3,4}; // 조합 출력할 원소들
+vector<int> c{0,0,1,1}; // 4개중 2개를 뽑을 벡터리스트 (순서 중요)
+
+do{
+        for(int i =0; i<v.size();i++) {
+                if(c[i]==1)cout<<v[i]<<' '; 
+        }
+        cout<<endl; 
+}while(next_permutation(c.begin(),c.end()));
+//출력결과
+3 4 
+2 4 
+2 3 
+1 4 
+1 3 
+1 2 
+
+// prev_permu..를 이용한 조합
+vector<int> v{1,2,3,4};
+vector<int> c{1,1,0,0}; // 4개중 2개를 뽑을 벡터리스트 (순서 중요)
+
+do{
+      for(int i =0; i<v.size();i++) {
+              if(c[i]==1)cout<<v[i]<<' '; 
+      }
+      cout<<endl; 
+}while(prev_permutation(c.begin(),c.end()));
+
+//출력결과
+1 2 
+1 3 
+1 4 
+2 3 
+2 4 
+3 4 
+```
+
