@@ -60,4 +60,34 @@ do{
 2 4 
 3 4 
 ```
+nPr
+```c++
+#include <iostream>
+#include <algorithm>
+#include <vector>
 
+using namespace std;
+
+vector<int> v;
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	vector<int> v = { 1, 2, 3, 4, 5 };
+
+	int n = v.size();  // 5
+	int r = 2;
+
+	do
+	{
+		for (int i = 0; i < r; i++)
+		{
+			cout << v[i] << " ";
+		}
+		cout << '\n';
+		reverse(v.begin() + r, v.end());
+
+	} while (next_permutation(v.begin(), v.end()));
+}
+```
