@@ -33,6 +33,7 @@ do{
         }
         cout<<endl; 
 }while(next_permutation(c.begin(),c.end()));
+
 //출력결과
 3 4 
 2 4 
