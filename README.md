@@ -1,8 +1,5 @@
 # Algorithm
 
-- 내 블로그
- https://giron.tistory.com/
- 
  c++로 stringTokenizer
 ```c++
 string s = "";
