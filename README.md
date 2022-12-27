@@ -19,6 +19,37 @@ vector<string> split(string input, char delimiter) {
     return answer;
 }
 ```
+### python으로 순열
+arr = [1, 2, 3, 4, 5]
+```python3
+n = 5
+arr = []
+for i in range(1, n + 1):
+    arr.append(i)
+visited = [0] * n
+
+
+def permutation(candidate, chosen, n):
+    if len(chosen) == n:
+        for i in chosen:
+            print(i, end=' ')
+        print()
+        return
+
+    for i in range(len(candidate)):
+        if not visited[i]:
+            chosen.append(candidate[i])
+            visited[i] = 1
+            permutation(candidate, chosen, n)
+            visited[i] = 0
+            chosen.pop()
+
+
+permutation(arr, [], n)
+```
+
+
+
 next_permutation을 이용한 조합
 ```c++
 vector<int> v{1,2,3,4}; // 조합 출력할 원소들
