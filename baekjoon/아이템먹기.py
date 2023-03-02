@@ -32,10 +32,6 @@ def go(cx, cy, nx, ny):
             if arr[i][j] != 2:
                 dp[i][j] = dp[i][j-1] + dp[i+1][j]
 
-answer = 1
 for i in range(1, len(items)):
-    if items[i-1][1] > items[i][1]:
-        answer = 0
-        break
     go(items[i - 1][0], items[i - 1][1], items[i][0], items[i][1])
 print(dp[0][m-1])
