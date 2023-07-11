@@ -48,6 +48,22 @@ def permutation(candidate, chosen, n):
 permutation(arr, [], n)
 ```
 
+### python으로 조합
+```python3
+def gen_combinations(arr, n):
+    result =[] 
+
+    if n == 0: 
+        return [[]]
+
+    for i in range(0, len(arr)): 
+        elem = arr[i] 
+        rest_arr = arr[i + 1:] 
+        for C in gen_combinations(rest_arr, n-1): 
+            result.append([elem]+C) 
+              
+    return result
+```
 
 
 next_permutation을 이용한 조합
